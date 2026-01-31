@@ -3,44 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/615ffe3dce.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <div>
-            <div>
-               <div>
-                    <i class="fa-solid fa-list-check"></i>
-                    <p>Add New Task</p>
-               </div>
-               <div>
-                    <button>All</button>
-                    <button>Active</button>
-                    <button>Completed</button>
-                    <div>
-                        <i class="fa-solid fa-filter"></i>
-                        <button>All Categories</button>
-                    </div>    
-                    <div>
-                        <i class="fa-solid fa-arrow-down-z-a"></i>
-                        <button>Sort By Priority</button>
-                    </div>
-                    <div>
-                        <div>
-                            <i class="fa-regular fa-circle"></i>
-                            <p>Study JavaScript</p>
-            
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-circle-play"></i>
-                            <i class="fa-solid fa-trash-can"></i>
-                        </div>
-                    </div>
-               </div>
+    <div class="task-view-container">
+        <div class="task-container">
+            <i class="fa-solid fa-list-check"></i>
+            <p>Add New Task</p>
+        </div>
+        <div class="task-buttons">
+            <button>All</button>
+            <button>Active</button>
+            <button>Completed</button>
+            <div class="categories icon-with-button">
+                <i class="fa-solid fa-filter"></i>
+                <button>All Categories</button>
+            </div>    
+            <div class="sorting icon-with-button">
+                <i class="fa-solid fa-arrow-down-z-a"></i>
+                <button>Sort By Priority</button>
             </div>
         </div>
+        <div class="display-container">
+            <div class="task-check-mark">
+                <i class="fa-regular fa-circle"></i>
+                <p>Study JavaScript</p>
 
+            </div>
+            <div class="icons">
+                <i class="fa-solid fa-circle-play"></i>
+                <i class="fa-solid fa-trash-can"></i>
+            </div>
+        </div>
     </div>
 </body>
 </html>

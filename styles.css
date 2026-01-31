@@ -1,0 +1,66 @@
+.task-container {
+    background-color: orange;
+    font-size: 15;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.task-container p {
+    padding-left: 7px;
+}
+
+body p {
+    margin: 0;
+}
+
+.task-buttons {
+    width: 670px;
+    background-color: pink;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 21px;
+    margin-bottom: 80px;
+}
+
+.task-buttons button {
+    height: 29px;
+    width: 110px;
+}
+
+.task-check-mark {
+    display: flex;
+}
+
+.task-check-mark p {
+    padding-left: 6px;
+}
+
+.icon-with-button button {
+    margin-left: 4px;
+}
+
+.display-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    height: 100px;
+    background-color: rgb(214, 193, 75);
+}
+
+.task-view-container {
+    background-color: bisque;
+    width: 700px;
+    height: 250px;
+    padding: 15px;
+    border: 1px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.icons{
+
+
+}
