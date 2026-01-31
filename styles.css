@@ -1,10 +1,14 @@
 .task-container {
-    background-color: orange;
     font-size: 15;
-    font-family: 'Courier New', Courier, monospace;
     display: flex;
+    height: 45px;
     flex-direction: row;
+    align-items: center;
     margin-bottom: 10px;
+}
+
+body {
+        font-family: 'Courier New', Courier, monospace;
 }
 
 .task-container p {
@@ -17,16 +21,22 @@ body p {
 
 .task-buttons {
     width: 670px;
-    background-color: pink;
     display: flex;
     justify-content: space-between;
     margin-left: 21px;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
 }
 
 .task-buttons button {
     height: 29px;
     width: 110px;
+    background-color: #ccc6c8;
+    border: 1px;
+    border-radius: 5px;
+}
+
+.task-buttons button:hover {
+    cursor: pointer;
 }
 
 .task-check-mark {
@@ -44,15 +54,17 @@ body p {
 .display-container{
     display: flex;
     justify-content: space-between;
-    padding: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
     height: 100px;
-    background-color: rgb(214, 193, 75);
+    border-radius: 15px;
+    background-color: #ccc6c8;
 }
 
 .task-view-container {
-    background-color: bisque;
+    background-color: #ffd1dc;
     width: 700px;
-    height: 250px;
+    height: 360px;
     padding: 15px;
     border: 1px;
     display: flex;
