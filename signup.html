@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+</head>
+<body>
+
+<h2>Sign Up</h2>
+
+<input type="text" id="suUser" placeholder="Username"><br><br>
+<input type="password" id="suPass" placeholder="Password"><br><br>
+
+<button onclick="signup()">Create Account</button>
+
+<p>Already have an account? <a href="login.html">Login</a></p>
+
+<script>
+function signup() {
+  const user = document.getElementById("suUser").value;
+  const pass = document.getElementById("suPass").value;
+
+  if (!user || !pass) {
+    alert("Fill all fields");
+    return;
+  }
+
+  let users = JSON.parse(localStorage.getItem("users")) || {};
+
+  if (users[user]) {
+    alert("User already exists");
+    return;
+  }
+
+  users[user] = pass;
+  localStorage.setItem("users", JSON.stringify(users));
+
+  alert("Account created — please login");
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

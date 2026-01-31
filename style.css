@@ -1,0 +1,87 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffe6f0, #ffd6eb);
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+
+/* Flower background using emoji pattern */
+body::before {
+  content: "🌸 🌺 🌸 🌺 🌸 🌺 🌸 🌺 🌸";
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 22px;
+  opacity: 0.15;
+}
+
+
+h2 {
+  text-align: center;
+  color: #c2185b;
+}
+
+
+.container {
+  max-width: 500px;
+  margin: auto;
+  background: #fff0f6;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 0 20px rgba(255,105,180,0.25);
+  border: 3px solid #ffb6d9;
+}
+
+
+/* inputs */
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 10px;
+  border: 2px solid #ffc1e3;
+  background: #fff;
+}
+
+
+/* buttons */
+button {
+  background: #ff69b4;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #ff1493;
+  transform: scale(1.05);
+}
+
+
+/* task list */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #ffe6f3;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 12px;
+  border: 2px dashed #ff9ecd;
+}
+
+
+/* completed tasks */
+.done {
+  text-decoration: line-through;
+  color: #888;
+}
