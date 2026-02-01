@@ -10,32 +10,32 @@
     rel="stylesheet"
   />
 
+  <!-- Font Awesome -->
+  <script
+    src="https://kit.fontawesome.com/615ffe3dce.js"
+    crossorigin="anonymous">
+  </script>
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- TOP NAV -->
+
+<!-- TOP NAV -->
 <div class="top-bar">
   <div class="top-left">
     <div class="logo">✨</div>
-    <div>
-      <h5 class="mb-0">TaskFlow</h5>
-    </div>
+    <h5 class="mb-0">TaskFlow</h5>
   </div>
 
   <div class="top-stats">
     <div class="stat completed">
-      ✔ Completed
-      <span id="completedCount">0/0</span>
+      ✔ Completed <span id="completedCount">0/0</span>
     </div>
-
     <div class="stat today">
-      ⏰ Due Today
-      <span id="dueTodayCount">0</span>
+      ⏰ Due Today <span id="dueTodayCount">0</span>
     </div>
-
     <div class="stat high">
-      🎯 High Priority
-      <span id="highPriorityCount">0</span>
+      🎯 High Priority <span id="highPriorityCount">0</span>
     </div>
   </div>
 
@@ -44,61 +44,100 @@
   </div>
 </div>
 
+<div class="container py-4">
+  <h2 class="text-center mb-1">What will I accomplish today?</h2>
+  <p class="text-center text-muted mb-4">
+    Stay focused, organised and productive with TaskFlow.
+  </p>
 
-  <div class="container py-4">
-    <h2 class="text-center mb-1">What will I accomplish today?</h2>
-    <p class="text-center text-muted mb-4">
-      Stay focused, organised and productive with TaskFlow.
-    </p>
+  <div class="row">
 
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card p-3">
-          <h5>➕ Add New Task</h5>
+    <!-- ADD TASK -->
+    <div class="col-md-4">
+      <div class="card p-3">
+        <h5>➕ Add New Task</h5>
 
-          <input
-            type="text"
-            id="taskName"
-            class="form-control mb-2"
-            placeholder="Task name"
-          />
+        <input
+          type="text"
+          id="taskName"
+          class="form-control mb-2"
+          placeholder="Task name"
+        />
 
-          <label class="form-label">Category</label>
-          <select id="category" class="form-select mb-2">
-            <option>School</option>
-            <option>Work</option>
-            <option>Personal</option>
-          </select>
+        <label class="form-label">Category</label>
+        <select id="category" class="form-select mb-2">
+          <option>School</option>
+          <option>Work</option>
+          <option>Personal</option>
+        </select>
 
-          <label class="form-label">Priority</label>
-          <select id="priority" class="form-select mb-2">
-            <option value="1">High</option>
-            <option value="2">Medium</option>
-            <option value="3">Low</option>
-          </select>
+        <label class="form-label">Priority</label>
+        <select id="priority" class="form-select mb-2">
+          <option value="1">High</option>
+          <option value="2">Medium</option>
+          <option value="3">Low</option>
+        </select>
 
-          <label class="form-label">Due Date</label>
-          <input type="date" id="dueDate" class="form-control mb-3" />
+        <label class="form-label">Due Date</label>
+        <input type="date" id="dueDate" class="form-control mb-3" />
 
-          <button class="btn btn-dark w-100" onclick="addTask()">
-            Create Task
-          </button>
-        </div>
-      </div>
-      <div class="col-md-8">
-        <div class="card p-3">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <h5>📋 Tasks</h5>
-
-            <!--Add My Tasks card-->
-          </div>
-
-          <div id="taskList"></div>
-        </div>
+        <button class="btn btn-dark w-100" onclick="addTask()">
+          Create Task
+        </button>
       </div>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <!-- TASK LIST -->
+    <div class="col-md-8">
+      <div class="card p-3">
+
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <i class="fa-solid fa-list-check"></i>
+          <h5 class="mb-0">Tasks</h5>
+          
+        </div>
+
+        <!-- FILTERS -->
+        <div class="d-flex flex-wrap gap-2 mb-4">
+
+          <button class="btn btn-light btn-sm" onclick="setFilter('all')">All</button>
+          <button class="btn btn-light btn-sm" onclick="setFilter('active')">Active</button>
+          <button class="btn btn-light btn-sm" onclick="setFilter('completed')">Completed</button>
+
+          <div class="d-flex align-items-center gap-1 ms-2">
+            <i class="fa-solid fa-filter"></i>
+            <select
+              class="form-select form-select-sm"
+              onchange="setCategory(this.value)">
+              <option value="all">All Categories</option>
+              <option value="School">School</option>
+              <option value="Work">Work</option>
+              <option value="Personal">Personal</option>
+            </select>
+          </div>
+
+          <div class="d-flex align-items-center gap-1 ms-2">
+            <i class="fa-solid fa-arrow-down-z-a"></i>
+            <select
+              class="form-select form-select-sm"
+              onchange="sortByPriority(this.value)">
+              <option value="">All Priorities</option>
+              <option value="1">High</option>
+              <option value="2">Medium</option>
+              <option value="3">Low</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div id="taskList"></div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
