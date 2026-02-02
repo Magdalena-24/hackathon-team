@@ -1,14 +1,20 @@
-/* -------------------------
-   USER AUTH SECTION
---------------------------*/
+/* =========================
+   AUTHENTICATION
+========================= */
 
 // SIGN UP
 function signup() {
-  const user = document.getElementById("suUser").value;
-  const pass = document.getElementById("suPass").value;
+  const user = document.getElementById("suUser").value.trim();
+  const pass = document.getElementById("suPass").value.trim();
 
   if (!user || !pass) {
-    alert("Fill all fields");
+    alert("Please fill all fields");
+    return;
+  }
+
+  // password rules
+  if (pass.length < 6 || !/\d/.test(pass)) {
+    alert("Password must be at least 6 characters and contain a number");
     return;
   }
 
@@ -22,23 +28,23 @@ function signup() {
   users[user] = pass;
   localStorage.setItem("users", JSON.stringify(users));
 
-  alert("Account created! Please login.");
+  alert("Account created 💗 Please login");
   window.location.href = "login.html";
 }
 
 
 // LOGIN
 function login() {
-  const user = document.getElementById("liUser").value;
-  const pass = document.getElementById("liPass").value;
+  const user = document.getElementById("liUser").value.trim();
+  const pass = document.getElementById("liPass").value.trim();
 
-  const users = JSON.parse(localStorage.getItem("users")) || {};
+  let users = JSON.parse(localStorage.getItem("users")) || {};
 
-  if (users[user] === pass) {
+  if (users[user] && users[user] === pass) {
     localStorage.setItem("currentUser", user);
     window.location.href = "tasks.html";
   } else {
-    alert("Invalid login");
+    alert("Incorrect username or password");
   }
 }
 
@@ -50,19 +56,17 @@ function logout() {
 }
 
 
+/* =========================
+   TASK MANAGEMENT
+========================= */
 
-/* -------------------------
-   TASK SECTION
---------------------------*/
-
-// check login on task page
 const currentUser = localStorage.getItem("currentUser");
 
+// protect tasks page
 if (window.location.pathname.includes("tasks.html") && !currentUser) {
   window.location.href = "login.html";
 }
 
-// load tasks per user
 let tasks = JSON.parse(localStorage.getItem(currentUser + "_tasks")) || [];
 
 
@@ -109,8 +113,8 @@ function clearForm() {
 
 // TOGGLE COMPLETE
 function toggleTask(id) {
-  tasks = tasks.map(t =>
-    t.id === id ? { ...t, completed: !t.completed } : t
+  tasks = tasks.map(task =>
+    task.id === id ? { ...task, completed: !task.completed } : task
   );
   saveTasks();
   renderTasks();
@@ -119,7 +123,7 @@ function toggleTask(id) {
 
 // DELETE TASK
 function deleteTask(id) {
-  tasks = tasks.filter(t => t.id !== id);
+  tasks = tasks.filter(task => task.id !== id);
   saveTasks();
   renderTasks();
 }
@@ -134,19 +138,16 @@ function renderTasks() {
 
   tasks.forEach(task => {
     const li = document.createElement("li");
-
     li.innerHTML = `
       <span class="${task.completed ? 'done' : ''}">
         🌸 ${task.name} | ${task.category} | ${task.priority} | ${task.dueDate}
       </span>
-      <button onclick="toggleTask(${task.id})">✓</button>
+      <button onclick="toggleTask(${task.id})">✔</button>
       <button onclick="deleteTask(${task.id})">🗑</button>
     `;
-
     list.appendChild(li);
   });
 }
 
-
-// auto render when page loads
 renderTasks();
+

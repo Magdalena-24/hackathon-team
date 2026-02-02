@@ -1,43 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sign Up</title>
+  <title>Sign Up 🌸</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
+
 <body>
+  <div class="container">
+    <h2>🌸 Blossom Planner – Sign Up 🌸</h2>
 
-<h2>Sign Up</h2>
+    <input id="suUser" placeholder="Username">
+    <input id="suPass" type="password" placeholder="Password">
+    <p class="hint">Password must be at least 6 characters and include a number 💗</p>
 
-<input type="text" id="suUser" placeholder="Username"><br><br>
-<input type="password" id="suPass" placeholder="Password"><br><br>
+    <button onclick="signup()">Create Account</button>
 
-<button onclick="signup()">Create Account</button>
-
-<p>Already have an account? <a href="login.html">Login</a></p>
-
-<script>
-function signup() {
-  const user = document.getElementById("suUser").value;
-  const pass = document.getElementById("suPass").value;
-
-  if (!user || !pass) {
-    alert("Fill all fields");
-    return;
-  }
-
-  let users = JSON.parse(localStorage.getItem("users")) || {};
-
-  if (users[user]) {
-    alert("User already exists");
-    return;
-  }
-
-  users[user] = pass;
-  localStorage.setItem("users", JSON.stringify(users));
-
-  alert("Account created — please login");
-  window.location.href = "login.html";
-}
-</script>
-
+    <p>Already have an account?
+      <a href="login.html">Login</a>
+    </p>
+  </div>
 </body>
 </html>

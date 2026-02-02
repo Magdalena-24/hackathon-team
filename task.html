@@ -1,26 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Blossom Tasks 🌸</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+
 <body>
-<div class="container">
+  <div class="container">
+    <h2>🌸 My Task Garden 🌸</h2>
 
-<h2>🌸 My Task Planner 🌸</h2>
+    <input id="taskName" placeholder="Task name 🌷">
 
-<input id="taskName" placeholder="Task name">
-<select id="category">
-  <option>School</option>
-  <option>Work</option>
-</select>
+    <select id="category">
+      <option>School</option>
+      <option>Work</option>
+      <option>Personal</option>
+    </select>
 
-<select id="priority">
-  <option>High</option>
-  <option>Medium</option>
-  <option>Low</option>
-</select>
+    <select id="priority">
+      <option>High</option>
+      <option>Medium</option>
+      <option>Low</option>
+    </select>
 
-<input type="date" id="dueDate">
+    <input type="date" id="dueDate">
 
-<button onclick="addTask()">Add Task</button>
-<button onclick="logout()">Logout</button>
+    <button onclick="addTask()">🌸 Add Task</button>
+    <button onclick="logout()">Logout</button>
 
-<ul id="taskList"></ul>
-
-</div>
+    <ul id="taskList"></ul>
+  </div>
 </body>
+</html>
+
