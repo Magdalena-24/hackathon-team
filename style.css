@@ -1,14 +1,153 @@
- body {
-  background-color: #f6eeee;
+
+:root {
+  --pink-main: #c97c7c;
+  --pink-light: #fdeff2;
+  --pink-hover: #b86666;
+  --text-main: #4b4b4b;
+
+  --signin-top: 20px;
+  --signin-height: 36px;
+  --finger-gap: 48px;
+  --signin-right: 20px;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Georgia", serif;
+  background-color: var(--pink-light);
+  color: var(--text-main);
+  margin: 0;
+  padding: 0;
+}
+
+
+h2 {
+  color: var(--pink-main);
+  font-weight: bold;
+}
+
+.app-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--pink-main);
+  margin: 0;
+}
+
+
+h5 {
+  color: var(--pink-main);
+  font-weight: bold;
+}
+
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+
+.top-stats {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 999;
+}
+
+.top-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  font-size: 1.5rem;
+}
+
+.top-right {
+  margin-left: auto;
+}
+
+
+.btn-purple {
+  background: white;
+  color: var(--text-main);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+}
+
+.btn-purple:hover {
+  transform: translateY(-3px);
+  background: #f3f3f3;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+.top-stats {
+  position: fixed;
+  top: calc(var(--signin-top) + var(--signin-height) + var(--finger-gap));
+  right: var(--signin-right);
+  display: flex;
+  gap: 12px;
+  z-index: 999;
+}
+
+.top-stats .stat {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.top-stats .stat:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+.container.py-4 {
+  margin-top: calc(
+    var(--signin-top) + var(--signin-height) + var(--finger-gap) + 30px
+  );
+}
+.container.py-4 {
+  margin-top: 110px;
+
+}
+
 
 .card {
-  border-radius: 12px;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
 }
 
-.task-item {
-  background: #e0e0e0;
-  border-radius: 10px;
-  padding: 12px;
-  margin-bottom: 10px;
+
+.btn-dark {
+  background-color: var(--pink-main);
+  border-color: var(--pink-main);
 }
+
+.btn-dark:hover {
+  background-color: var(--pink-hover);
+  border-color: var(--pink-hover);
+}
+
+.fa-list-check,
+.fa-filter,
+.fa-arrow-down-z-a {
+  color: var(--pink-main);
+}
+

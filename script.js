@@ -28,7 +28,7 @@ function addTask() {
   updateStats();
 }
 
-// RENDER TASKS
+
 function renderTasks() {
   const taskList = document.getElementById("taskList");
   taskList.innerHTML = "";
@@ -75,7 +75,6 @@ function renderTasks() {
   });
 }
 
-// TOGGLE COMPLETE
 function toggleTask(id) {
   const task = tasks.find(t => t.id === id);
   task.completed = !task.completed;
@@ -105,7 +104,6 @@ function setFilter(filter) {
   renderTasks();
 }
 
-// CATEGORY FILTER
 function setCategory(category) {
   currentCategory = category;
   renderTasks();
@@ -117,7 +115,6 @@ function sortByPriority(priority) {
   renderTasks();
 }
 
-// STATS
 function updateStats() {
   document.getElementById("completedCount").textContent =
     `${tasks.filter(t => t.completed).length}/${tasks.length}`;
