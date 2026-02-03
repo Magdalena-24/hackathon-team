@@ -151,3 +151,10 @@ h5 {
   color: var(--pink-main);
 }
 
+.timer {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+
