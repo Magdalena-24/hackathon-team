@@ -1,6 +1,3 @@
-/* =========================
-   TASK LOGIC
-========================= */
 
 let tasks = [];
 let currentFilter = "all";
@@ -35,7 +32,6 @@ function addTask() {
   updateStats();
 }
 
-// RENDER TASKS
 function renderTasks() {
   const taskList = document.getElementById("taskList");
   taskList.innerHTML = "";
@@ -99,7 +95,6 @@ function renderTasks() {
   });
 }
 
-// TOGGLE COMPLETE
 function toggleTask(id) {
   const task = tasks.find(t => t.id === id);
   if (!task) return;
@@ -109,14 +104,12 @@ function toggleTask(id) {
   updateStats();
 }
 
-// DELETE TASK
 function deleteTask(id) {
   tasks = tasks.filter(t => t.id !== id);
   renderTasks();
   updateStats();
 }
 
-// FILTERS
 function setFilter(filter) {
   currentFilter = filter;
 
@@ -146,7 +139,6 @@ function sortByPriority(priority) {
   renderTasks();
 }
 
-// STATS
 function updateStats() {
   document.getElementById("completedCount").textContent =
     `${tasks.filter(t => t.completed).length}/${tasks.length}`;
@@ -159,11 +151,8 @@ function updateStats() {
     tasks.filter(t => t.priority === 1 && !t.completed).length;
 }
 
-/* =========================
-   POMODORO TIMER
-========================= */
 
-let focusTime = 20 * 60; // 20 minutes
+let focusTime = 20 * 60;
 let timeLeft = focusTime;
 let timerInterval = null;
 let activeTaskId = null;
@@ -175,7 +164,6 @@ const startBtn = document.getElementById("startBtn");
 const pauseBtn = document.getElementById("pauseBtn");
 const resetBtn = document.getElementById("resetBtn");
 
-// UPDATE TIMER UI
 function updateTimerDisplay() {
   const minutes = Math.floor(timeLeft / 60);
   const seconds = timeLeft % 60;
@@ -186,7 +174,6 @@ function updateTimerDisplay() {
       .padStart(2, "0")}`;
 }
 
-// SELECT TASK FOR POMODORO
 function selectTask(taskId) {
   const task = tasks.find(t => t.id === taskId);
   if (!task) return;
@@ -196,7 +183,6 @@ function selectTask(taskId) {
   resetTimer();
 }
 
-// START TIMER
 function startTimer() {
   if (!activeTaskId) {
     alert("Please select a task first 😊");
@@ -218,23 +204,19 @@ function startTimer() {
   }, 1000);
 }
 
-// PAUSE TIMER
 function pauseTimer() {
   clearInterval(timerInterval);
   timerInterval = null;
 }
 
-// RESET TIMER
 function resetTimer() {
   pauseTimer();
   timeLeft = focusTime;
   updateTimerDisplay();
 }
 
-// BUTTON EVENTS
 startBtn.addEventListener("click", startTimer);
 pauseBtn.addEventListener("click", pauseTimer);
 resetBtn.addEventListener("click", resetTimer);
 
-// INIT
 updateTimerDisplay();
